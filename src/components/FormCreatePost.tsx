@@ -4,11 +4,12 @@ import { IPost } from '../models/IPost';
 import { postApi } from '../services/PostService';
 
 interface FormProps {
-    open: boolean
+    open: boolean;
     handleClose: () => void;
+    text: string;
 }
 
-const FormCreatePost: FC<FormProps> = ({ open, handleClose }) => {
+const FormCreatePost: FC<FormProps> = ({ open, handleClose, text }) => {
     const [createPost, { isSuccess }] = postApi.useCreatePostMutation();
     const [formTitle, setFormTitle] = useState('');
     const [formBody, setFormBody] = useState('');
@@ -26,7 +27,7 @@ const FormCreatePost: FC<FormProps> = ({ open, handleClose }) => {
             <Box component="form"
                 noValidate
                 autoComplete="off">
-                <DialogTitle>Расскажите, что у вас нового</DialogTitle>
+                <DialogTitle>{text}</DialogTitle>
                 <DialogContent>
                     <TextField
                         autoFocus

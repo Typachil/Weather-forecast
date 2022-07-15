@@ -1,8 +1,6 @@
-import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material'
-import React, { useState } from 'react'
-import { IPost } from '../models/IPost';
-import { postApi } from '../services/PostService';
-import FormCreatePost from './FormCreatePost';
+import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
+import React, { lazy, useState } from 'react';
+const FormCreatePost = lazy(() => import('./FormCreatePost'))
 
 export default function Header() {
     const [openForm, setOpenForm] = useState(false)
@@ -19,7 +17,7 @@ export default function Header() {
                     </Button>
                 </Toolbar>
             </AppBar>
-            <FormCreatePost handleClose={() => setOpenForm(!openForm)} open={openForm}/>
+            <FormCreatePost text={"Расскажите, что у вас нового"} handleClose={() => setOpenForm(!openForm)} open={openForm}/>
         </Box>
     )
 }

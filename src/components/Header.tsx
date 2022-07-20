@@ -1,9 +1,15 @@
 import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
-import React, { lazy, useState } from 'react';
+import React, { lazy, useEffect, useState } from 'react';
+import { useAppSelector } from '../hooks/redux';
 const FormCreatePost = lazy(() => import('./FormCreatePost'))
 
 export default function Header() {
-    const [openForm, setOpenForm] = useState(false)
+    const [openForm, setOpenForm] = useState(false);
+    const store = useAppSelector(state => state);
+
+    useEffect(() => {
+        console.log(store)
+    }, [])
 
     return (
         <Box sx={{ flexGrow: 1, mb: 4 }}>

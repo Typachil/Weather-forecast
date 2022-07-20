@@ -1,5 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react"
 import { IPost } from "../models/IPost"
+import { IUser } from "../models/IUser"
 
 export const postApi = createApi({
     reducerPath: 'postApi',
@@ -39,6 +40,11 @@ export const postApi = createApi({
                 method: 'DELETE'
             }),
             invalidatesTags: ['Post']
+        }),
+        fetchUser: build.query<IUser, number>({
+            query: (id: number) => ({
+                url: `/users/${id}`
+            })
         })
     })
 })

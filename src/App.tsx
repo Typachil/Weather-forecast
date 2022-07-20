@@ -1,6 +1,5 @@
 import React from 'react';
 import { useEffect } from 'react';
-import './App.css';
 import Header from './components/Header';
 import PostContainer from './components/PostContainer';
 import { useAppDispatch, useAppSelector } from './hooks/redux';
@@ -12,6 +11,7 @@ function App() {
 
   // useEffect(()=>{
   //   dispatch(fetchUsers())
+  //   console.log(users)
   // },[])
 
   return (

@@ -2,7 +2,7 @@ import { Avatar, Button, Card, CardActions, CardContent, CardHeader, IconButton,
 import { red } from '@mui/material/colors';
 import React, { FC } from 'react'
 import { IPost } from '../models/IPost';
-import { userApi } from '../services/UserService';
+import { postApi } from '../services/PostService';
 
 interface PostItemProps {
   post: IPost
@@ -12,7 +12,7 @@ interface PostItemProps {
 
 const PostItem: FC<PostItemProps> = ({ post, remove, update }) => {
 
-  const { data: user, error, isLoading } = userApi.useFetchUserQuery(post.userId);
+  const { data: user, error, isLoading } = postApi.useFetchUserQuery(post.userId);
 
   const handleRemove = (event: React.MouseEvent) => {
     event.stopPropagation();

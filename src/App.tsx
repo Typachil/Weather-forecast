@@ -1,23 +1,21 @@
 import React from 'react';
 import { useEffect } from 'react';
-import Header from './components/Header';
-import PostContainer from './components/PostContainer';
+import Main from './components/Main/Main';
+import Navigation from './components/Navigation';
 import { useAppDispatch, useAppSelector } from './hooks/redux';
-import { fetchUsers } from './store/reducers/ActionCreators';
+import { fetchWeather } from './store/reducers/ActionCreators';
 
 function App() {
-  // const {users, isLoading, error} = useAppSelector(state => state.userReducer)
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
-  // useEffect(()=>{
-  //   dispatch(fetchUsers())
-  //   console.log(users)
-  // },[])
+  useEffect(()=>{
+    dispatch(fetchWeather({cnt: 8, lat: 58.0105, lon: 56.2502}))
+  },[])
 
   return (
     <div className="App">
-      <Header/>
-      <PostContainer />
+      <Navigation/>
+      <Main/>    
     </div>
   );
 }

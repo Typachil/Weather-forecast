@@ -1,28 +1,23 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { IUser } from "../../models/IUser";
-import { AppDispatch } from "../store";
-import { userSlice } from "./UserSlice";
+import { IWeatherCity } from "../../models/IWeather";
 
 
-// export const fetchUsers = () => async(dispatch: AppDispatch) => {
-//     try {
-//         dispatch(userSlice.actions.userFetching());
-//         const response = await axios.get<IUser[]>('https://jsonplaceholder.typicode.com/users');
-//         dispatch(userSlice.actions.userFetchingSuccess(response.data))
-//     } catch(e:any) {
-//         dispatch(userSlice.actions.userFetchingError(e.message))
-//     }
-// }
+interface paramsWeather{
+    lat: number,
+    lon: number,
+    cnt: number
+}
 
-export const fetchUsers = createAsyncThunk(
-    'user/fetchAll',
-    async (_, thunkApi) => {
+export const fetchWeather = createAsyncThunk<IWeatherCity, paramsWeather>(
+    'weather/fetch',
+    async (userData, {rejectWithValue}) => {
+        const {lat, lon, cnt} = userData;
         try {
-            const response = await axios.get<IUser[]>('https://jsonplaceholder.typicode.com/users')
-            return response.data;
+            const response = await axios.get<IWeatherCity>('http://localhost:5000/weather', {params : {lat, lon, cnt}});
+            return response.data
         }catch(e){
-            return thunkApi.rejectWithValue("Не удалось загрузить пользователей")
+            return rejectWithValue("Не удалось загрузить погоду")
         }
     }
 )

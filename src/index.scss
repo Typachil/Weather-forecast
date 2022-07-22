@@ -13,5 +13,8 @@ code {
 }
 
 .App {
-  text-align: center;
+  display: flex;
+  min-height: 100vh;
+  // background-image: url('https://99px.ru/sstorage/86/2016/01/image_861101161423521449740.gif');
+  background-size: cover;
 }

@@ -1,0 +1,50 @@
+@mixin centerAlign {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.weather {
+    width: 100%;
+    @include centerAlign;
+
+    h1{
+        margin-top: 0;
+    }
+    &-wrapper {
+        @include centerAlign;
+        flex-direction: column;
+    }
+
+    &-current{
+        @include centerAlign;
+        flex-direction: column;
+
+        &__description {
+            font-size: 2vmax;
+        }
+    }
+
+    &-values {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        &__icon {
+            width: 2vmax;
+            height: 2vmax;
+        }
+
+        >div {
+            @include centerAlign;
+            font-size: 1.5vmax;
+            
+        }
+    }
+}
+
+.loading {
+    width: 100%;
+    @include centerAlign;
+}

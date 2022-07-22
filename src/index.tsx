@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.scss';
 import App from './App';
 import { Provider } from 'react-redux';
 import { setupStore } from './store/store';
@@ -13,7 +13,7 @@ declare module '@mui/material/styles' {
       primary: {
         main: string
       },
-      error: {
+      secondary: {
         main: string
       };
     }
@@ -23,10 +23,10 @@ declare module '@mui/material/styles' {
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#61dafb'
+      main: '#1976d2'
     },
-    error: {
-      main: '#c42d55'
+    secondary: {
+      main: '#90caf9'
     }
   }
 })

@@ -1,0 +1,31 @@
+@mixin centerAlign {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-list{
+    @include centerAlign;
+    margin-top: 10px;
+    border-top: 1px solid #000;
+
+    &__header{
+        font-size: 1.5vmax;
+        @include centerAlign;
+    }
+    
+    &__element{
+        font-size: 1.5vmax;
+        text-align: center;
+        margin: 0 10px;
+    }
+
+    &__temp{
+        font-weight: bold;
+    }
+
+    &__icon{
+        width: 1.5vmax;
+        height: 1.5vmax;
+    }
+}

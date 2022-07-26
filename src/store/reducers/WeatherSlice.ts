@@ -33,7 +33,7 @@ const initialState: WeatherState = {
     }
 }
 
-export const WeatherSlice = createSlice({
+const WeatherSlice = createSlice({
     name: "weather",
     initialState,
     reducers: {
@@ -63,4 +63,5 @@ function isError(action: AnyAction) {
     return action.type.endsWith('rejected')
 };
 
+export const {setCurrentWeather} = WeatherSlice.actions;
 export default WeatherSlice.reducer;

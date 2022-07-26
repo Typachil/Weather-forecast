@@ -1,8 +1,10 @@
-import { combineReducers, configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { combineReducers, configureStore} from "@reduxjs/toolkit";
 import weatherReducer from "./reducers/WeatherSlice";
+import UiReducer from "./reducers/UiSlice";
 
 const rootReducer = combineReducers({
     weatherReducer,
+    UiReducer
 });
 
 export const setupStore = () => {

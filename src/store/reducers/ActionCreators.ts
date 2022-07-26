@@ -4,17 +4,19 @@ import { IWeatherCity } from "../../models/IWeather";
 
 
 interface paramsWeather{
-    lat: number,
-    lon: number,
-    cnt: number
+    id: number,
+    cnt?: number
 }
+
+const appid = '89a0c226c453b01c1b833d24beb61e8c';
 
 export const fetchWeather = createAsyncThunk<IWeatherCity, paramsWeather>(
     'weather/fetch',
-    async (userData, {rejectWithValue}) => {
-        const {lat, lon, cnt} = userData;
+    async ({id, cnt = 8}, {rejectWithValue}) => {
         try {
-            const response = await axios.get<IWeatherCity>('http://localhost:5000/weather', {params : {lat, lon, cnt}});
+            const response = await axios.get<IWeatherCity>('https://api.openweathermap.org/data/2.5/forecast', 
+                {params : {id, cnt, appid, lang:'ru', units:'metric'}}
+            );
             return response.data
         }catch(e){
             return rejectWithValue("Не удалось загрузить погоду")

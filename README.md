@@ -1,7 +1,10 @@
 # Weather-forecast
 Команды:
+
 Для клонирования проекта - "gh repo clone Typachil/Weather-forecast"
+
 Для установки зависимостей - "npm install | npm i"
+
 Для запуска проекта - "npm run start"
 
 Скриншоты проекта:

@@ -1,4 +1,6 @@
 # Weather-forecast
+Проект берет информацию о погоде с помощью API "https://openweathermap.org/api"
+
 Команды:
 
 Для клонирования проекта - "gh repo clone Typachil/Weather-forecast"

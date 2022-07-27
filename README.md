@@ -8,7 +8,7 @@
 
 1) Отображение проекта для пк
 -----------------------------
-![Screenshot_3](https://user-images.githubusercontent.com/50023740/181227224-b27e5b5f-231a-4ea4-97c1-6b848c39dc36.png)
+![Screenshot_2](https://user-images.githubusercontent.com/50023740/181227470-4b8cca66-1373-497d-897a-6ced90b6b4dd.png)
 
 2) Отображение проекта для мобильных устройств
 -----------------------------
